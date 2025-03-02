@@ -1,7 +1,7 @@
 % EXAMPLE 01: COSINE WAVE
 Fs = 200;               % sampling frequency
 t = 0:(1/Fs):1;         % time vector of 1 second
-f = 10;                 % freq of 10Hz
+f = 50;                 % freq of 10Hz
 x = cos(2*pi*t*f);      % cosine wave x(t)
 nfft = 1024;            % length of FFT
 X = fft(x, nfft);       % eval FFT

@@ -2,7 +2,7 @@
 Fs = 200;               % sampling frequency
 t = 0:(1/Fs):1;         % time vector of 1 second
 a = 10;                 % exp factor exp(-at)
-x = 2*exp(-a*t);      % symm double exp pulse
+x = exp(-a*t).*sign(t);      % symm double exp pulse
 nfft = 1024;            % length of FFT
 X = fft(x, nfft);       % eval FFT
 
@@ -18,7 +18,7 @@ f = (0:nfft/2-1)*Fs/nfft;  % Freq vector
 % Generate plot
 figure(1);
 plot(t,x);
-title('Decaying Exponential Pulse');
+title('Asymmetric Decaying Exponential Pulse');
 xlabel('Time (s)');
 ylabel('Amplitude');
 figure(2);

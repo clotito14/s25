@@ -1,7 +1,7 @@
 % EXAMPLE 01: COSINE WAVE
 Fs = 200;               % sampling frequency
 t = -0.5:(1/Fs):0.5;    % time vector of 1 second
-T0 = 0.075;               % width of rect()
+T0 = 0.025;               % width of rect()
 x = rectpuls(t, T0);    % Generate rect pulse
 nfft = 1024;            % length of FFT
 X = fft(x, nfft);       % eval FFT
