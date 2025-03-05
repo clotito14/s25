@@ -12,6 +12,8 @@ correct, the 7-SEG Display reads 9, if incorrect E. This
 includes  a master reset.
 */
 
+`include "timeout_counter.v"
+
 module passcode_fsm (
     input       clk_i,
     input       rst_i,
@@ -21,7 +23,10 @@ module passcode_fsm (
     input       right_event_i,
     input       left_event_i,
     input       down_event_i,
-  
+    
+    // timeout
+    input       timeout_i,
+
     // TLLR passcode detected
     output      passcode_detected_o,
     output      passcode_failed_o,
@@ -52,9 +57,19 @@ module passcode_fsm (
     // 7-Seg Display
     reg [6:0] SSG_D;
 
+    // timeout signal
+    wire timeout;
+
     // button event occurred (any were pressed)
     wire button_event = top_event_i | right_event_i | left_event_i | down_event_i;
 
+    // initialize timeout counter
+    timeout_counter counter (
+        .clk_i(clk_i),
+        .rst_i(rst_i),
+        .enable_i(button_event),
+        .timeout_o(timeout)
+    );
 
     // initialize FSM
     initial begin
@@ -80,14 +95,17 @@ module passcode_fsm (
             
             STATE_1:        if (left_event_i) next_state <= STATE_2;
                             else if (!left_event_i && button_event) next_state <= FAIL_2;
+                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_1;
             
             STATE_2:        if (left_event_i) next_state <= STATE_3;
                             else if (!left_event_i && button_event) next_state <= FAIL_3;
+                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_2;
             
             STATE_3:        if (right_event_i) next_state <= STATE_4;
                             else if (!right_event_i && button_event) next_state <= FAIL_4;
+                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_3;
                             
             STATE_4:        if (rst_i) next_state <= INITIAL_STATE;
