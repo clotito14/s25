@@ -10,9 +10,6 @@ The FSM is a hierarchical design, so here we are combining
 the button event module with the passcode detector module.
 */
 
-`include "buttonEvent.v"
-`include "passcodeFSM.v"
-
 module top_module (
     input       clk,
     input       reset,
@@ -21,14 +18,14 @@ module top_module (
     input       top_button,
     input       right_button,
     input       left_button,
-    input       down_button    
-);
-
-    // Wires
-    wire clk, reset;
-    wire top_event, right_event, left_event, down_event; 
-    wire [6:0] SSG_D;
+    input       down_button,
     
+    output wire [6:0] SSG_D
+);
+    
+    wire passcode_detected;
+    wire passcode_failed;
+        
     // Instantiate the button event FSMs
     button_event_fsm right_button_fsm (
         .clk_i(clk),
@@ -65,6 +62,8 @@ module top_module (
         .right_event_i(right_event),
         .left_event_i(left_event),
         .down_event_i(down_event),
+        .passcode_detected_o(passcode_detected),
+        .passcode_failed_o(passcode_failed),
         .SSG_D(SSG_D)
    ); 
 

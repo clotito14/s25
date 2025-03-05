@@ -27,7 +27,7 @@ module passcode_fsm (
     output      passcode_failed_o,
 
     // 7-Segment Display Outputs
-    output [6:0] SSG_D
+    output reg [6:0] SSG_D
 );
 
     // PARAMETERS:
@@ -50,7 +50,7 @@ module passcode_fsm (
     reg [3:0] next_state; 
 
     // 7-Seg Display
-    reg [6:0] SSG_D;
+    //reg [6:0] SSG_D;
 
     // button event occurred (any were pressed)
     wire button_event = top_event_i | right_event_i | left_event_i | down_event_i;
