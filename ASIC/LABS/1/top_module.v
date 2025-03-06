@@ -20,12 +20,15 @@ module top_module (
     input       left_button,
     input       down_button,
     
-    output wire [6:0] SSG_D
+    // 7 seg display output
+    output wire [6:0] SSG_D,
+
+    // Passcode Detected or Failed
+    output wire passcode_detected_o,
+    output wire passcode_failed_o
+    
 );
     
-    wire passcode_detected;
-    wire passcode_failed;
-        
     // Instantiate the button event FSMs
     button_event_fsm right_button_fsm (
         .clk_i(clk),
@@ -62,8 +65,8 @@ module top_module (
         .right_event_i(right_event),
         .left_event_i(left_event),
         .down_event_i(down_event),
-        .passcode_detected_o(passcode_detected),
-        .passcode_failed_o(passcode_failed),
+        .passcode_detected_o(passcode_detected_o),
+        .passcode_failed_o(passcode_failed_o),
         .SSG_D(SSG_D)
    ); 
 

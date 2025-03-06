@@ -23,14 +23,14 @@ module timeout_counter (
 );
 
     // Parameters
-    parameter MAX_CYCLE = 30;
+    parameter MAX_CYCLE = 1_000_000_000;
 
     // State parameters
     parameter INITIAL = 1'b0;
     parameter TIMING = 1'b1;
 
     // Registers
-    reg current_cycle;
+    reg [8:0] current_cycle;
     reg current_state;
     reg next_state;
 
@@ -44,8 +44,9 @@ module timeout_counter (
     always @(posedge clk_i) begin
         if (rst_i) begin
             current_cycle <= 0;
-        end else begin
+        end else if (current_state == TIMING) begin
             current_cycle = current_cycle + 1;
+        end else begin
             current_state <= next_state;
         end
     end
@@ -58,10 +59,10 @@ module timeout_counter (
             TIMING: if (rst_i) next_state <= INITIAL;
                     else next_state <= TIMING;
 
-            default: current_state <= INITIAL;
+            default: next_state <= INITIAL;
         endcase
     end
-
+    
     assign timeout_o = (current_cycle == MAX_CYCLE) ? 1 : 0;
 
 endmodule

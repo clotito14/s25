@@ -94,14 +94,17 @@ module passcode_fsm (
             
             STATE_1:        if (left_event_i) next_state <= STATE_2;
                             else if (!left_event_i && button_event) next_state <= FAIL_2;
+                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_1;
             
             STATE_2:        if (left_event_i) next_state <= STATE_3;
                             else if (!left_event_i && button_event) next_state <= FAIL_3;
+                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_2;
             
             STATE_3:        if (right_event_i) next_state <= STATE_4;
                             else if (!right_event_i && button_event) next_state <= FAIL_4;
+                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_3;
                             
             STATE_4:        if (rst_i) next_state <= INITIAL_STATE;
