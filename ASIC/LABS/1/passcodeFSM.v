@@ -56,19 +56,17 @@ module passcode_fsm (
     wire button_event = top_event_i | right_event_i | left_event_i | down_event_i;
 
 
-    // initialize FSM
+    // initialize FSM (NOT NEEDED FOR SYNTHESIS AND IMPLEMENTATION)
     initial begin
         current_state = INITIAL_STATE;
-        SSG_D = 7'b1_000_000;
     end
 
 
     // SEQUENTIAL FSM LOGIC
     always @(posedge clk_i) begin
-        if (rst_i) begin 
+        if (rst_i)
             current_state <= INITIAL_STATE;
-            SSG_D = 7'b1_000_000;
-        end else current_state <= next_state; 
+        else current_state <= next_state; 
     end
 
     // NEXT STATE FSM LOGIC
@@ -91,10 +89,7 @@ module passcode_fsm (
                             else next_state <= STATE_3;
                             
             STATE_4:        if (rst_i) next_state <= INITIAL_STATE;
-                            else begin
-                                next_state <= STATE_4;
-                                SSG_D = 7'b0010_000;        // Display "9"
-                            end
+                            else next_state <= STATE_4;
 
             FAIL_1:         if (button_event) next_state <= FAIL_2;
             
@@ -103,12 +98,18 @@ module passcode_fsm (
             FAIL_3:         if (button_event) next_state <= FAIL_4;
             
             FAIL_4:         if (rst_i) next_state <= INITIAL_STATE;
-                            else begin
-                                next_state <= FAIL_4;
-                                SSG_D = 7'b0000_110;        // Display "E" for ERROR 
-                            end
+                            else next_state <= FAIL_4;
             
-            default: current_state <= ERROR_STATE; 
+            default: next_state <= ERROR_STATE; 
+        endcase
+    end
+
+    // 7 SEG DISPLAY OUTPUT LOGIC
+    always @(*) begin
+        case (current_state)
+            STATE_4: SSG_D = 7'b001_0000;   // Display '9' for CORRECT
+            FAIL_4: SSG_D = 7'b000_0110;    // Display 'E' for ERROR 
+            default: SSG_D = 7'b100_0000;   // Display '0' for RESET
         endcase
     end
 

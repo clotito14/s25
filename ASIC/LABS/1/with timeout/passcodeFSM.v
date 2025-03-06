@@ -71,10 +71,9 @@ module passcode_fsm (
         .timeout_o(timeout)
     );
 
-    // initialize FSM
+    // initialize FSM (NOT NEEDED FOR SYNTH OR IMPLEMENTATION)
     initial begin
         current_state = INITIAL_STATE;
-        SSG_D = 7'b1_000_000;
     end
 
 
@@ -95,24 +94,18 @@ module passcode_fsm (
             
             STATE_1:        if (left_event_i) next_state <= STATE_2;
                             else if (!left_event_i && button_event) next_state <= FAIL_2;
-                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_1;
             
             STATE_2:        if (left_event_i) next_state <= STATE_3;
                             else if (!left_event_i && button_event) next_state <= FAIL_3;
-                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_2;
             
             STATE_3:        if (right_event_i) next_state <= STATE_4;
                             else if (!right_event_i && button_event) next_state <= FAIL_4;
-                            else if (timeout) next_state <= FAIL_4;
                             else next_state <= STATE_3;
                             
             STATE_4:        if (rst_i) next_state <= INITIAL_STATE;
-                            else begin
-                                next_state <= STATE_4;
-                                SSG_D = 7'b0010_000;        // Display "9"
-                            end
+                            else next_state <= STATE_4;
 
             FAIL_1:         if (button_event) next_state <= FAIL_2;
             
@@ -121,12 +114,18 @@ module passcode_fsm (
             FAIL_3:         if (button_event) next_state <= FAIL_4;
             
             FAIL_4:         if (rst_i) next_state <= INITIAL_STATE;
-                            else begin
-                                next_state <= FAIL_4;
-                                SSG_D = 7'b0000_110;        // Display "E" for ERROR 
-                            end
+                            else next_state <= FAIL_4;
             
-            default: current_state <= ERROR_STATE; 
+            default: next_state <= ERROR_STATE; 
+        endcase
+    end
+
+    // 7 SEG DISPLAY OUTPUT LOGIC
+    always @(*) begin
+        case (current_state)
+            STATE_4: SSG_D = 7'b001_0000;   // Display '9' for CORRECT
+            FAIL_4: SSG_D = 7'b000_0110;    // Display 'E' for ERROR 
+            default: SSG_D = 7'b100_0000;   // Display '0' for RESET
         endcase
     end
 
