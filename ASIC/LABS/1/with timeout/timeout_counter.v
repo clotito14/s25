@@ -30,7 +30,7 @@ module timeout_counter (
     parameter TIMING = 1'b1;
 
     // Registers
-    reg [8:0] current_cycle;
+    reg [31:0] current_cycle;
     reg current_state;
     reg next_state;
 
