@@ -194,17 +194,17 @@ set_property IOSTANDARD LVCMOS33 [get_ports {SSG_D[6]}]
 
 #set_property IOSTANDARD LVCMOS33 [get_ports {an[0]}]
 
-set_property PACKAGE_PIN U4 [get_ports {SSG_EN[0]}]
+#set_property PACKAGE_PIN U4 [get_ports {SSG_EN[0]}]
 
-set_property IOSTANDARD LVCMOS33 [get_ports {SSG_EN[0]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {SSG_EN[0]}]
 
-set_property PACKAGE_PIN V4 [get_ports {SSG_EN[1]}]
+#set_property PACKAGE_PIN V4 [get_ports {SSG_EN[1]}]
 
-set_property IOSTANDARD LVCMOS33 [get_ports {SSG_EN[1]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {SSG_EN[1]}]
 
-set_property PACKAGE_PIN W4 [get_ports {SSG_EN[2]}]
+#set_property PACKAGE_PIN W4 [get_ports {SSG_EN[2]}]
 
-set_property IOSTANDARD LVCMOS33 [get_ports {SSG_EN[2]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {SSG_EN[2]}]
 
 
 
