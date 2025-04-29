@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="pmic_digital_module_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="pmic_digital_module" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="3,245.145 ns"></ZoomStartTime>
+      <ZoomEndTime time="3,682.971 ns"></ZoomEndTime>
+      <Cursor1Time time="3,395.538 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="149"></NameColumnWidth>
+      <ValueColumnWidth column_width="75"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="29" />
+   <wvobject fp_name="/pmic_digital_module/clk_i" type="logic">
+      <obj_property name="ElementShortName">clk_i</obj_property>
+      <obj_property name="ObjectShortName">clk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/reset_i" type="logic">
+      <obj_property name="ElementShortName">reset_i</obj_property>
+      <obj_property name="ObjectShortName">reset_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/low_battery_i" type="logic">
+      <obj_property name="ElementShortName">low_battery_i</obj_property>
+      <obj_property name="ObjectShortName">low_battery_i</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/low_power_mode_i" type="logic">
+      <obj_property name="ElementShortName">low_power_mode_i</obj_property>
+      <obj_property name="ObjectShortName">low_power_mode_i</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/on_off_i" type="logic">
+      <obj_property name="ElementShortName">on_off_i</obj_property>
+      <obj_property name="ObjectShortName">on_off_i</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/reg_3v3_enable_o" type="logic">
+      <obj_property name="ElementShortName">reg_3v3_enable_o</obj_property>
+      <obj_property name="ObjectShortName">reg_3v3_enable_o</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/reg_2v5_enable_o" type="logic">
+      <obj_property name="ElementShortName">reg_2v5_enable_o</obj_property>
+      <obj_property name="ObjectShortName">reg_2v5_enable_o</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/reg_1v2_enable_o" type="logic">
+      <obj_property name="ElementShortName">reg_1v2_enable_o</obj_property>
+      <obj_property name="ObjectShortName">reg_1v2_enable_o</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/ready_o" type="logic">
+      <obj_property name="ElementShortName">ready_o</obj_property>
+      <obj_property name="ObjectShortName">ready_o</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/current_state" type="array">
+      <obj_property name="ElementShortName">current_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">current_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/next_state" type="array">
+      <obj_property name="ElementShortName">next_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/cycle_count" type="array">
+      <obj_property name="ElementShortName">cycle_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cycle_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/master_cycle_count" type="array">
+      <obj_property name="ElementShortName">master_cycle_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">master_cycle_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/load_timer" type="logic">
+      <obj_property name="ElementShortName">load_timer</obj_property>
+      <obj_property name="ObjectShortName">load_timer</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_initial" type="array">
+      <obj_property name="ElementShortName">s_initial[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_initial[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_1" type="array">
+      <obj_property name="ElementShortName">s_1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_2" type="array">
+      <obj_property name="ElementShortName">s_2[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_2[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_3" type="array">
+      <obj_property name="ElementShortName">s_3[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_3[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_4" type="array">
+      <obj_property name="ElementShortName">s_4[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_4[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_5" type="array">
+      <obj_property name="ElementShortName">s_5[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_5[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_6" type="array">
+      <obj_property name="ElementShortName">s_6[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_6[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_7" type="array">
+      <obj_property name="ElementShortName">s_7[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_7[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_8" type="array">
+      <obj_property name="ElementShortName">s_8[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_8[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/s_9" type="array">
+      <obj_property name="ElementShortName">s_9[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s_9[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/t1" type="array">
+      <obj_property name="ElementShortName">t1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">t1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/t2" type="array">
+      <obj_property name="ElementShortName">t2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">t2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/t3" type="array">
+      <obj_property name="ElementShortName">t3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">t3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/t4" type="array">
+      <obj_property name="ElementShortName">t4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">t4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/pmic_digital_module/t5" type="array">
+      <obj_property name="ElementShortName">t5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">t5[31:0]</obj_property>
+   </wvobject>
+</wave_config>
